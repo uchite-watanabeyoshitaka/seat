@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>マーケティング 現在地自己診断フォーム</title>
+  <style>
+    body { font-family: Arial, sans-serif; background-color: #f7f7f7; margin: 0; padding: 0; }
+    .container { max-width: 800px; margin: 20px auto; background: white; padding: 20px; border-radius: 5px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+    header { text-align: center; margin-bottom: 20px; }
+    header img { width: 100%; max-width: 800px; border-radius: 5px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+    fieldset { margin-bottom: 20px; padding: 20px; border: 1px solid #ccc; border-radius: 5px; }
+    legend { font-weight: bold; padding: 0 10px; }
+    label { display: block; margin-bottom: 8px; }
+    input[type="text"], input[type="number"], textarea, select { width: 100%; padding: 8px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 3px; }
+    .button-group { text-align: center; }
+    button { padding: 10px 20px; font-size: 16px; border: none; border-radius: 3px; background-color: #007BFF; color: white; cursor: pointer; }
+    button:hover { background-color: #0056b3; }
+    .step { display: none; }
+    .step.active { display: block; }
+    .navigation { margin-top: 10px; }
+    /* 結果表示エリア */
+    #resultsPage { display: none; }
+    #resultsSummary p { margin: 5px 0; }
+  </style>
+</head>
+<body>
+  <div class="container" id="formContainer">
+    <!-- ヘッダー -->
+    <header>
+      <img src="https://via.placeholder.com/800x400.png?text=%E3%83%9E%E3%83%BC%E3%82%B1%E3%83%86%E3%82%A3%E3%83%B3%E3%82%B0+%E7%8F%BE%E5%9C%A8%E5%9C%B0%E8%AA%BF%E6%9F%BB" alt="オンライン自己診断シート用ヘッダー画像">
+    </header>
+    
+    <h1>マーケティング 現在地自己診断フォーム</h1>
+    <p>このフォームは、あなたの企業の「現在地」を把握し、今後のマーケティング施策の参考にするためのものです。各ステップごとに回答してください。</p>
+    <form id="diagnosisForm">
+      <!-- Step 1: 企業概要 & 内部環境 -->
+      <div class="step active" id="step1">
+        <fieldset>
+          <legend>モジュール1：企業概要 & 内部環境</legend>
+          <label for="companyName">会社名:</label>
+          <input type="text" id="companyName" name="companyName" placeholder="例：株式会社〇〇">
+          
+          <label for="establishedYear">設立年:</label>
+          <input type="number" id="establishedYear" name="establishedYear" placeholder="例：2005">
+          
+          <label for="businessDescription">事業内容:</label>
+          <textarea id="businessDescription" name="businessDescription" placeholder="簡単に事業内容を記入してください"></textarea>
+          
+          <label>現在実施中のマーケティング施策（複数選択可）:</label>
+          <label><input type="checkbox" name="marketingStrategies" value="SNS広告"> SNS広告</label>
+          <label><input type="checkbox" name="marketingStrategies" value="ウェブサイト運営"> ウェブサイト運営</label>
+          <label><input type="checkbox" name="marketingStrategies" value="メールマーケティング"> メールマーケティング</label>
+          <label><input type="checkbox" name="marketingStrategies" value="オフライン広告"> オフライン広告</label>
+          <label><input type="checkbox" name="marketingStrategies" value="その他"> その他（下記に記入）</label>
+          <input type="text" id="otherStrategy" name="otherStrategy" placeholder="その他の施策">
+          
+          <label>月間ウェブサイト訪問者数:</label>
+          <select id="websiteVisitors" name="websiteVisitors">
+            <option value="">選択してください</option>
+            <option value="100未満">100人未満</option>
+            <option value="100-500">100～500人</option>
+            <option value="500-1000">500～1,000人</option>
+            <option value="1000以上">1,000人以上</option>
+          </select>
+          
+          <label>SNSのフォロワー数:</label>
+          <select id="snsFollowers" name="snsFollowers">
+            <option value="">選択してください</option>
+            <option value="100未満">100人未満</option>
+            <option value="100-500">100～500人</option>
+            <option value="500-1000">500～1,000人</option>
+            <option value="1000以上">1,000人以上</option>
+          </select>
+        </fieldset>
+        <div class="navigation button-group">
+          <button type="button" id="next1">次へ</button>
+        </div>
+      </div>
+      
+      <!-- Step 2: 顧客理解 & ターゲティング -->
+      <div class="step" id="step2">
+        <fieldset>
+          <legend>モジュール2：顧客理解 & ターゲティング</legend>
+          <label>主要な顧客層:</label>
+          <label><input type="checkbox" name="customerSegment" value="若年層"> 若年層（18～29歳）</label>
+          <label><input type="checkbox" name="customerSegment" value="中年層"> 中年層（30～50歳）</label>
+          <label><input type="checkbox" name="customerSegment" value="高齢層"> 高齢層（50歳以上）</label>
+          <label><input type="checkbox" name="customerSegment" value="法人向け"> 法人向け</label>
+          <label><input type="checkbox" name="customerSegment" value="その他"> その他（記入）</label>
+          <input type="text" id="otherCustomerSegment" name="otherCustomerSegment" placeholder="その他の顧客層">
+          
+          <label>現在の顧客満足度（5段階評価）:</label>
+          <label><input type="radio" name="customerSatisfaction" value="1"> 1（非常に低い）</label>
+          <label><input type="radio" name="customerSatisfaction" value="2"> 2</label>
+          <label><input type="radio" name="customerSatisfaction" value="3"> 3</label>
+          <label><input type="radio" name="customerSatisfaction" value="4"> 4</label>
+          <label><input type="radio" name="customerSatisfaction" value="5"> 5（非常に高い）</label>
+          
+          <label>顧客からの主なフィードバックや要望:</label>
+          <textarea id="customerFeedback" name="customerFeedback" placeholder="簡単に記入してください"></textarea>
+        </fieldset>
+        <div class="navigation button-group">
+          <button type="button" id="prev2">戻る</button>
+          <button type="button" id="next2">次へ</button>
+        </div>
+      </div>
+      
+      <!-- Step 3: 競合環境 & 市場環境 -->
+      <div class="step" id="step3">
+        <fieldset>
+          <legend>モジュール3：競合環境 & 市場環境</legend>
+          <label>主要な競合他社の数:</label>
+          <select id="competitorCount" name="competitorCount">
+            <option value="">選択してください</option>
+            <option value="1">1社</option>
+            <option value="2-3">2～3社</option>
+            <option value="4-5">4～5社</option>
+            <option value="6以上">6社以上</option>
+          </select>
+          
+          <label>自社の強み（複数選択可）:</label>
+          <label><input type="checkbox" name="companyStrength" value="価格競争力"> 価格競争力</label>
+          <label><input type="checkbox" name="companyStrength" value="品質"> 製品・サービスの品質</label>
+          <label><input type="checkbox" name="companyStrength" value="顧客対応"> 顧客対応・サービス</label>
+          <label><input type="checkbox" name="companyStrength" value="ブランド認知"> ブランド認知</label>
+          <label><input type="checkbox" name="companyStrength" value="その他"> その他（記入）</label>
+          <input type="text" id="otherCompanyStrength" name="otherCompanyStrength" placeholder="その他の強み">
+          
+          <label>自社の改善すべき点（複数選択可）:</label>
+          <label><input type="checkbox" name="companyWeakness" value="施策実行"> マーケティング施策の実行</label>
+          <label><input type="checkbox" name="companyWeakness" value="デジタル戦略"> デジタル戦略</label>
+          <label><input type="checkbox" name="companyWeakness" value="顧客対応"> 顧客対応</label>
+          <label><input type="checkbox" name="companyWeakness" value="製品改善"> 製品・サービス内容</label>
+          <label><input type="checkbox" name="companyWeakness" value="その他"> その他（記入）</label>
+          <input type="text" id="otherCompanyWeakness" name="otherCompanyWeakness" placeholder="その他の改善点">
+          
+          <label>業界トレンドや市場動向は把握できていますか？</label>
+          <label><input type="radio" name="industryTrend" value="yes"> はい</label>
+          <label><input type="radio" name="industryTrend" value="no"> いいえ</label>
+          
+          <label>外部環境の影響（経済、技術、社会、規制）を5段階で評価してください：</label>
+          <label>経済的要因: <select name="economicImpact">
+            <option value="">選択してください</option>
+            <option value="1">1（低い）</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5（高い）</option>
+          </select></label>
+          <label>技術的要因: <select name="technologyImpact">
+            <option value="">選択してください</option>
+            <option value="1">1（低い）</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5（高い）</option>
+          </select></label>
+          <label>社会的要因: <select name="socialImpact">
+            <option value="">選択してください</option>
+            <option value="1">1（低い）</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5（高い）</option>
+          </select></label>
+          <label>規制的要因: <select name="regulationImpact">
+            <option value="">選択してください</option>
+            <option value="1">1（低い）</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5（高い）</option>
+          </select></label>
+        </fieldset>
+        <div class="navigation button-group">
+          <button type="button" id="prev3">戻る</button>
+          <button type="button" id="next3">次へ</button>
+        </div>
+      </div>
+      
+      <!-- Step 4: 施策評価 & 今後のアクション -->
+      <div class="step" id="step4">
+        <fieldset>
+          <legend>モジュール4：施策評価 & 今後のアクション</legend>
+          <label>各施策の効果評価（SNS、広告、メールなど）を5段階で評価してください：</label>
+          <label>SNS施策: <select name="snsEffect">
+            <option value="">選択してください</option>
+            <option value="1">1（低い）</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5（高い）</option>
+          </select></label>
+          <label>広告施策: <select name="adEffect">
+            <option value="">選択してください</option>
+            <option value="1">1（低い）</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5（高い）</option>
+          </select></label>
+          <label>メールマーケティング: <select name="emailEffect">
+            <option value="">選択してください</option>
+            <option value="1">1（低い）</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5（高い）</option>
+          </select></label>
+          
+          <label>全体としての顧客満足度（5段階評価）:</label>
+          <label><input type="radio" name="overallSatisfaction" value="1"> 1（非常に低い）</label>
+          <label><input type="radio" name="overallSatisfaction" value="2"> 2</label>
+          <label><input type="radio" name="overallSatisfaction" value="3"> 3</label>
+          <label><input type="radio" name="overallSatisfaction" value="4"> 4</label>
+          <label><input type="radio" name="overallSatisfaction" value="5"> 5（非常に高い）</label>
+          
+          <label>今後、最も注力すべき課題は何ですか？</label>
+          <select name="priorityChallenge">
+            <option value="">選択してください</option>
+            <option value="customerUnderstanding">顧客理解の深化</option>
+            <option value="competitorDifferentiation">競合との差別化</option>
+            <option value="digitalStrengthening">デジタル施策の強化</option>
+            <option value="brandingReview">ブランディングの見直し</option>
+            <option value="other">その他</option>
+          </select>
+          <input type="text" id="otherPriorityChallenge" name="otherPriorityChallenge" placeholder="その他の場合ご記入ください">
+        </fieldset>
+        <div class="navigation button-group">
+          <button type="button" id="prev4">戻る</button>
+          <button type="submit" id="submitForm">送信</button>
+        </div>
+      </div>
+    </form>
+  </div>
+  
+  <!-- 結果表示エリア -->
+  <div class="container" id="resultsPage" style="display: none;">
+    <h1>自己診断結果</h1>
+    <div id="resultsSummary"></div>
+    <div class="button-group">
+      <button id="copyButton">結果をコピー</button>
+    </div>
+  </div>
+  
+  <script>
+    // Multi-step form navigation
+    const steps = document.querySelectorAll('.step');
+    let currentStep = 0;
+    
+    document.getElementById('next1').addEventListener('click', () => { showStep(1); });
+    document.getElementById('next2').addEventListener('click', () => { showStep(2); });
+    document.getElementById('next3').addEventListener('click', () => { showStep(3); });
+    document.getElementById('prev2').addEventListener('click', () => { showStep(0); });
+    document.getElementById('prev3').addEventListener('click', () => { showStep(1); });
+    document.getElementById('prev4').addEventListener('click', () => { showStep(2); });
+    
+    function showStep(stepIndex) {
+      steps[currentStep].classList.remove('active');
+      currentStep = stepIndex;
+      steps[currentStep].classList.add('active');
+    }
+    
+    // フォーム送信時に結果ページに遷移
+    document.getElementById('diagnosisForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const formData = new FormData(this);
+      let resultHTML = "<h2>【自己診断結果】</h2>";
+      
+      // 企業概要 & 内部環境
+      resultHTML += "<h3>モジュール1：企業概要 & 内部環境</h3>";
+      resultHTML += "<p><strong>会社名:</strong> " + (formData.get("companyName") || "未入力") + "</p>";
+      resultHTML += "<p><strong>設立年:</strong> " + (formData.get("establishedYear") || "未入力") + "</p>";
+      resultHTML += "<p><strong>事業内容:</strong> " + (formData.get("businessDescription") || "未入力") + "</p>";
+      // マーケティング施策
+      const strategies = formData.getAll("marketingStrategies");
+      resultHTML += "<p><strong>実施中のマーケティング施策:</strong> " + (strategies.length ? strategies.join(", ") : "未選択") + "</p>";
+      resultHTML += "<p><strong>その他の施策:</strong> " + (formData.get("otherStrategy") || "未入力") + "</p>";
+      resultHTML += "<p><strong>月間ウェブサイト訪問者数:</strong> " + (formData.get("websiteVisitors") || "未選択") + "</p>";
+      resultHTML += "<p><strong>SNSのフォロワー数:</strong> " + (formData.get("snsFollowers") || "未選択") + "</p>";
+      
+      // 顧客理解 & ターゲティング
+      resultHTML += "<h3>モジュール2：顧客理解 & ターゲティング</h3>";
+      const customerSegments = formData.getAll("customerSegment");
+      resultHTML += "<p><strong>主要な顧客層:</strong> " + (customerSegments.length ? customerSegments.join(", ") : "未選択") + "</p>";
+      resultHTML += "<p><strong>その他の顧客層:</strong> " + (formData.get("otherCustomerSegment") || "未入力") + "</p>";
+      resultHTML += "<p><strong>顧客満足度:</strong> " + (formData.get("customerSatisfaction") || "未評価") + "</p>";
+      resultHTML += "<p><strong>顧客フィードバック:</strong> " + (formData.get("customerFeedback") || "未入力") + "</p>";
+      
+      // 競合環境 & 市場環境
+      resultHTML += "<h3>モジュール3：競合環境 & 市場環境</h3>";
+      resultHTML += "<p><strong>主要な競合他社の数:</strong> " + (formData.get("competitorCount") || "未選択") + "</p>";
+      const companyStrengths = formData.getAll("companyStrength");
+      resultHTML += "<p><strong>自社の強み:</strong> " + (companyStrengths.length ? companyStrengths.join(", ") : "未選択") + "</p>";
+      resultHTML += "<p><strong>その他の強み:</strong> " + (formData.get("otherCompanyStrength") || "未入力") + "</p>";
+      const companyWeaknesses = formData.getAll("companyWeakness");
+      resultHTML += "<p><strong>改善すべき点:</strong> " + (companyWeaknesses.length ? companyWeaknesses.join(", ") : "未選択") + "</p>";
+      resultHTML += "<p><strong>その他の改善点:</strong> " + (formData.get("otherCompanyWeakness") || "未入力") + "</p>";
+      resultHTML += "<p><strong>業界トレンド把握:</strong> " + (formData.get("industryTrend") === "yes" ? "把握している" : "把握していない") + "</p>";
+      resultHTML += "<p><strong>経済的要因の影響:</strong> " + (formData.get("economicImpact") || "未選択") + "</p>";
+      resultHTML += "<p><strong>技術的要因の影響:</strong> " + (formData.get("technologyImpact") || "未選択") + "</p>";
+      resultHTML += "<p><strong>社会的要因の影響:</strong> " + (formData.get("socialImpact") || "未選択") + "</p>";
+      resultHTML += "<p><strong>規制的要因の影響:</strong> " + (formData.get("regulationImpact") || "未選択") + "</p>";
+      
+      // 施策評価 & 今後のアクション
+      resultHTML += "<h3>モジュール4：施策評価 & 今後のアクション</h3>";
+      resultHTML += "<p><strong>SNS施策の効果:</strong> " + (formData.get("snsEffect") || "未評価") + "</p>";
+      resultHTML += "<p><strong>広告施策の効果:</strong> " + (formData.get("adEffect") || "未評価") + "</p>";
+      resultHTML += "<p><strong>メールマーケティングの効果:</strong> " + (formData.get("emailEffect") || "未評価") + "</p>";
+      resultHTML += "<p><strong>全体の顧客満足度:</strong> " + (formData.get("overallSatisfaction") || "未評価") + "</p>";
+      resultHTML += "<p><strong>注力すべき課題:</strong> " + (formData.get("priorityChallenge") || "未選択") + "</p>";
+      resultHTML += "<p><strong>その他の注力課題:</strong> " + (formData.get("otherPriorityChallenge") || "未入力") + "</p>";
+      
+      // 結果を表示する
+      document.getElementById("resultsSummary").innerHTML = resultHTML;
+      // フォームエリアを隠して結果ページを表示
+      document.getElementById("formContainer").style.display = "none";
+      document.getElementById("resultsPage").style.display = "block";
+    });
+    
+    // コピー機能
+    document.getElementById("copyButton").addEventListener("click", function() {
+      const resultsText = document.getElementById("resultsSummary").innerText;
+      navigator.clipboard.writeText(resultsText)
+        .then(() => { alert("結果がコピーされました！"); })
+        .catch(() => { alert("コピーに失敗しました。"); });
+    });
+  </script>
+</body>
+</html>
